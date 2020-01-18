@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../App.css";
 
 function Login(props) {
     
@@ -29,7 +30,7 @@ function Login(props) {
             <form onSubmit={onSubmit}>
                 <input onChange={handleChanges} name="username" type="text" placeholder="username.." value={form.username} />
                 <input onChange={handleChanges} name="password" type="password" placeholder="password.." value={form.password} />
-                <button type="submit">Login</button>
+                <button className="button" type="submit">Login</button>
                 
             </form>
             

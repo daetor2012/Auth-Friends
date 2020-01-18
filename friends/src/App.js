@@ -9,14 +9,12 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <ul>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/protected">Protected Page</Link>
-          </li>
-        </ul>
+        <div className="App-header">
+          <Link to="/login">Login</Link>
+          <Link to="/protected">Protected Page</Link>
+        </div>
+        <h1>Welcome to the Friends App!</h1>
+        <h3>Please login to view current friends</h3>
         <Switch>
           <Route path="/login" component={Login} />
           <Route component={Login} />

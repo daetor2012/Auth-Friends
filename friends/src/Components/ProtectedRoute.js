@@ -12,7 +12,7 @@ export default function ProtectedRoute({ component: Component, ...rest}) {
                 if(loggedIn) {
                     return <Component {...props} />
                 } else {
-                    return <Redirect to="/login" />
+                    return <Redirect to="/login" />, console.log("There was an error with authentication.")
                 }
             }}
         />
