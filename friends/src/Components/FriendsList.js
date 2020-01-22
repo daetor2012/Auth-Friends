@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "./axiosWithAuth";
 import Friends from "./Friends";
+import AddFriend from "./AddFriend";
 
 function FriendsList() {
     const [api, setAPI] = useState();
@@ -16,8 +17,16 @@ function FriendsList() {
             .catch(error => {
                 console.log(error);
             })
-    }, [api])
+    }, [])
     
+    if(!api) {
+        return (
+            <div>
+                Loading friends...
+            </div>
+        )
+    }
+    else {
     return (
         <>
             <h1>Characters in friends list:</h1>
@@ -26,8 +35,9 @@ function FriendsList() {
                     <Friends name={i.name} age={i.age} email={i.email} key={i.id} />
                 )
             })}
+            <AddFriend />
         </>
     )
-}
+}}
 
 export default FriendsList;

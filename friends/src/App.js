@@ -14,11 +14,9 @@ function App() {
           <Link to="/protected">Protected Page</Link>
         </div>
         <h1>Welcome to the Friends App!</h1>
-        <h3>Please login to view current friends</h3>
         <Switch>
-          <Route path="/login" component={Login} />
-          <Route component={Login} />
-          <ProtectedRoute exact path="/protected" component={FriendsList} />
+          <Route exact path="/login" component={Login} />
+          <ProtectedRoute path="/protected" component={FriendsList} />
         </Switch>
       </div>
     </Router>

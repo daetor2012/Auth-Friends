@@ -14,7 +14,6 @@ function Login(props) {
         axios.post("http://localhost:5000/api/login", form)
         .then(res => {
             localStorage.setItem("token", res.data.payload);
-            console.log(res);
 
         })
         .catch(error => {
@@ -27,6 +26,7 @@ function Login(props) {
     }
     return (
         <div>
+            <h3>Please login to view current friends</h3>
             <form onSubmit={onSubmit}>
                 <input onChange={handleChanges} name="username" type="text" placeholder="username.." value={form.username} />
                 <input onChange={handleChanges} name="password" type="password" placeholder="password.." value={form.password} />
