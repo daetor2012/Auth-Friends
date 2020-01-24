@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "./axiosWithAuth";
 import Friends from "./Friends";
 import AddFriend from "./AddFriend";
+import { Link } from "react-router-dom";
 
 function FriendsList() {
     const [api, setAPI] = useState();
@@ -21,22 +22,28 @@ function FriendsList() {
     
     if(!api) {
         return (
-            <div>
-                Loading friends...
+            <div className="App">
+                <div className="App-header">
+                    <Link className="links" to="/">Home</Link>
+                </div>
+                <div>Loading friends list...</div>
             </div>
         )
     }
     else {
     return (
-        <>
-            <h1>Characters in friends list:</h1>
+        <div className="App">
+            <div className="App-header">
+                <Link className="links" to="/">Home</Link>
+            </div>
+            <AddFriend />
+            <h2>Characters in friends list:</h2>
             {api.map(i => {
                 return (
                     <Friends name={i.name} age={i.age} email={i.email} key={i.id} />
                 )
             })}
-            <AddFriend />
-        </>
+        </div>
     )
 }}
 

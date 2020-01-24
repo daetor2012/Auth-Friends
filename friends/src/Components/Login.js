@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../App.css";
+import { Link } from "react-router-dom";
 
 function Login(props) {
     
@@ -25,15 +26,17 @@ function Login(props) {
         
     }
     return (
-        <div>
+        <div className="App">
+            <div className="App-header">
+                <Link className="links" to="/">Home</Link>
+                <Link className="links" to="/protected">Friends List</Link>
+            </div>
             <h3>Please login to view current friends</h3>
             <form onSubmit={onSubmit}>
-                <input onChange={handleChanges} name="username" type="text" placeholder="username.." value={form.username} />
-                <input onChange={handleChanges} name="password" type="password" placeholder="password.." value={form.password} />
+                <input onChange={handleChanges} name="username" type="text" placeholder="Username" value={form.username} />
+                <input onChange={handleChanges} name="password" type="password" placeholder="Password" value={form.password} />
                 <button className="button" type="submit">Login</button>
-                
             </form>
-            
         </div>
     )
 }
